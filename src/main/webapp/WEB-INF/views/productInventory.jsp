@@ -5,8 +5,8 @@
 	<div class="row">
 	
 	 <div class="page-header">
-	 	<h1>Productos</h1>
-	 	<p class="lead">Checa nuestros productos</p>
+	 	<h1>Administracion de productos</h1>
+	 	<p class="lead">Listado de productos</p>
 	 </div>
 	
 	<table class="table table-striped table-hover">
@@ -22,7 +22,7 @@
 		</tr>
 		    <c:forEach items="${products}" var="product">
 			<tr>
-			    <td><img alt="Photo" src= "<c:url value="/resources/images/${product.productId}.png" />" width="80px"></td>
+			    <td><img alt="Photo" src= "<c:url value="/resources/images/${product.productId}.png" />" width="80px" ></td>
 				<td>${product.productId}</td>
 				<td>${product.productName}</td>
 				<td>${product.productStatus}</td>
@@ -31,9 +31,16 @@
 				<td>${product.productUnits}</td>
 				<td><a href= "<spring:url value="/productList/viewProduct/${product.productId}" />"  >
 				<span class="glyphicon glyphicon-info-sign"></span></a></td>
+				<td><a href= "<spring:url value="/admin/productInventory/deleteProduct/${product.productId}" />"  >
+				<span class="glyphicon glyphicon-remove"></span></a></td>
+				<td><a href= "<spring:url value="/admin/productInventory/editProduct/${product.productId}" />"  >
+				<span class="glyphicon glyphicon-pencil"></span></a></td>
 			</tr>
 		    </c:forEach>
 	</table>
+	
+	<a href= "<spring:url value="/admin/productInventory/addProduct" />">Add Product</a>
+	
 	</div>
 </div>
 
