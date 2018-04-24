@@ -1,5 +1,6 @@
 package com.galosoft.dao.impl;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +33,14 @@ public class CartDaoImpl implements CartDao{
 	}
 	
 	
+	public Cart validate(int cartId) throws IOException {
+		Cart cart = getCartById(cartId);
+		if(cart == null || cart.getCartItems().size() == 0) {
+			throw new IOException(cartId+"");
+		}
+		update(cart);
+		return cart;
+}
 
 }
 

@@ -15,6 +15,7 @@
  		    <div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
  			<div>
  				<a class="btn btn-danger" ng-click="clearCart()">Clear cart</a>
+ 				<a href="<spring:url value="/order/${cartId}"/>" class="btn btn-success pull-right"> Checkout</a>
  			</div>
 
 			<table class="table">
